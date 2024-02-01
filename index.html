@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <title>Planillas</title>
+</head>
+<body>
+
+    <header id="Inicio">
+        <!----------------------NAV------------------------>
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(to right,#121212, #3b3b3b, #ffffffe6)";>
+            <!----------------------TITULO PAGINA Y STICKER MARGARITA------------------------>
+            <div class="container-fluid">
+                <a class="navbar-brand"><img id="logoT" class="logo" src="img/Logo3.png" alt="Logo" width="105px"></a>
+                <h2 class="titulo">Gestión de <span>horarios</span></h2>
+            </div>
+            <!----------------------BOTON DEL MODO OSCURO------------------------>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <i class="fa-solid fa-moon fa-2xl nav-link dropdown-toggle text-dark" id="nombree" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
+
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <div class="dropdown-item">
+                                    <label id="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    </header>
+
+    
+    <main>
+        
+        <!----------------------FLECHAS------------------------>
+        <div class="mover">
+            <a href="#Inicio"><i id="rowUp" class="fa-solid fa-circle-arrow-up fa-2xl" style="color: #ffc404;"></i></a>
+            <br>
+            <a href="#pie"><i id="rowDown" class="fa-solid fa-circle-arrow-down fa-2xl" style="color: #ffc404;"></i></a>
+        </div>
+        <!----------------------FORMULARIO JORNADA LABORAL------------------------>
+        <div class="container mt-4"> 
+                <h2 class="formula"><i class="fa-regular fa-rectangle-list"></i> Formulario:</h2>
+                <form id="formulario" class="col-9 mx-auto">
+                    <div class="form-group mb-2">
+                        <label for="nombre">Nombre completo:</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" list="gente" autocomplete="off" placeholder="Ej: Juan Perez" required>
+                        <datalist id="gente">
+                            <option value="Ayelen Pazos">
+                                <option value="Ana Trinidad">
+                                    <option value="María Nela Barzola">
+                                        <option value="Alejandro">
+                                            <option value="Papá Alejandro">
+                                                <option value="Lucia Belén Alvez">
+                                                    <option value="Empleado 7">
+                                                        <option value="Empleado 8">
+                                                            <option value="Empleado 9">
+                        
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="fecha">Fecha:</label>
+                        <input type="date" class="form-control" id="fecha" name="fecha" required>
+                    </div>
+                    <label for="entrada salida">Horas de entrada / salida:</label>
+                    <div class="form-group mb-3">
+                        <div class="row">
+                            <div class="col">
+                                <input type="time" class="form-control" id="entrada" name="entrada" required>
+                            </div>
+                            <div class="col">
+                                <input type="time" class="form-control" id="salida" name="salida" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-2">
+                        <div class="row">
+                            <div class="col">
+                                <input type="time" class="form-control col-4" id="entrada2" name="entrada" required>
+                            </div>
+                            <div class="col">
+                                <input type="time" class="form-control" id="salida2" name="salida" required>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-warning btn-lg ingresar">Ingresar</button>
+                </form>
+        </div>
+          
+        
+        <img class="pizzaImg" src="img/pizza.png" alt="pizzaLogo" width="125px">
+        <!-- -------------DATOS DE HORARIOS---------------->
+        <div class="container mt-5">       
+            <!-- -------------TITULO DE HORARIOS Y FILTRADO DE NOMBRE---------------->
+            <div class="d-inline-flex ">
+                <div class="d-flex flex-row mb-3">
+                    <div class="p-2">   
+                        <div class="p-2">
+                        <h2 class="datoss"><i class="fa-solid fa-table-list"></i> Datos de horarios:</h2>
+                    </div>
+                        <div class="input-group"> 
+                            <input type="text" id="filtroNombre" class="form-control" placeholder="Introduce un nombre" aria-label="Nombre">
+                            <button id="btnFiltrar" class="btn btn btn-warning" type="button"><i id="pedro2" class="fa-solid fa-pen-to-square fa-xl"></i>Filtrar</button>
+                            <button id="btnLimpiarFiltro" class="btn btn-warning" type="button"><i id="pedro"  class="fa-solid fa-eraser fa-xl"></i>Limpiar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+            
+            <!-- --------------TABLA JORNAL---------------->
+                <table id="listaRegistros" class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="mitabla table-primary">Nombre completo</th>
+                            <th class="mitabla table-primary">Fecha ingresada</th>
+                            <th class="mitabla table-primary">Entrada (1)</th>
+                            <th class="mitabla table-primary">Salida (1)</th>
+                            <th class="mitabla table-primary">Entrada (2)</th>
+                            <th class="mitabla table-primary">Salida (2)</th>
+                            <th class="mitabla table-primary">Horas totales</th>
+                            <th class="mitabla table-primary">Horas nocturnas</th>
+                            <th class="mitabla table-primary">Horas extras</th>
+                            <th class="mitabla table-primary">Extras nocturnas</th>
+                            <th class="mitabla table-primary">Eliminar datos</th>
+                        </tr>
+                    </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="buttonsEnd">
+
+            <button id="btnaExcel" class="btn btn btn-warning" type="button"><i class="fa-solid fa-file-excel fa-xl"></i> Convertir a Excel</button>
+            <button id="allDelete" class="btn btn btn-warning" type="button"><i id="pedro" class="fa-solid fa-trash-can fa-xl"></i> Eliminar Tabla</button>
+            
+        </div>
+
+        <!-----------------TABLA DE SUBOTOTALES-------------------------->
+        <div class="container mt-1">     
+            <h2 class="subTotales"><i class="fa-solid fa-table-list d-inline"></i> Subtotales:</h2>       
+                <div class="d-flex flex-row mb-3">
+                    <div class="d-flex flex-row mb-3">
+                    <table id="subTotales" class="table table-striped table-bordered">
+                        
+                    </table>
+                </div>
+            </div>
+        </div>
+        <footer id="pie">
+            <a></a>
+        </footer>
+    </main>
+
+
+    <script src="script.js"></script>
+    <script src="dmode.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,281 @@
+*{
+    margin:0;
+    padding: 0;
+    border: none;
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: #ffffffe6;
+}
+
+
+.logo{
+border-radius: 50%;
+border: 1px solid  rgb(240, 243, 62);
+cursor: pointer;
+}
+
+nav{
+    border-bottom: transparent;
+}
+
+.titulo{
+    display: flex;
+    margin-right: 24vw;
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-family:cursive;
+    font-size: 40px;
+    color: #ffffffe6;
+}
+
+.titulo span{
+    color: #ffc107;
+    margin-left: 8px;
+    text-shadow: 1px 1px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 42.3px;
+}
+
+.pizzaImg{
+    position: relative;
+    float: inline-end;
+    margin-top: 20px;
+    margin-right: 300px;
+}
+
+#formulario {
+    font-size:19px;
+}
+
+.formula{
+   font-size: 30px;
+   margin-left: 140px;
+   margin-top: 60px;
+}
+
+.datoss{
+    font-size: 30px;
+    margin-right: 20px;
+}
+
+.subTotales {
+  font-size: 25px;
+  margin-left: 17px;
+}
+
+#subTotales {
+  display: block;
+}
+
+.input-group {
+  margin-left: 9px;
+}
+
+#fecha, #entrada, #salida, #entrada2, #salida2{
+    cursor: pointer;
+    font-size: 17px ;
+}
+
+#nombre{
+    font-size: 17px;
+}
+
+.imgForm{
+    margin-right: 10px;
+}
+
+input{
+    height: 8vh;
+}
+
+.mover{
+    position: fixed;
+    float: left;
+}
+
+#rowUp{
+  margin-top: 190px;
+  margin-left: 10px;
+}
+
+#rowDown{
+  margin-top: 30px;
+  margin-left: 10px;
+}
+
+#entrada::before{
+    content: 'Hora de entrada :';
+    margin-right: .6em;
+    color: #9d9d9d;
+}
+
+#salida::before{
+    content: 'Hora de salida :';
+    margin-right: .6em;
+    color: #9d9d9d;
+}
+
+#entrada2::before{
+    content: 'Hora de entrada (2) :';
+    margin-right: .6em;
+    color: #9d9d9d;
+}
+
+#salida2::before{
+    content: 'Hora de salida (2) :';
+    margin-right: .6em;
+    color: #9d9d9d;
+}
+
+.ingresar{
+  width: 140px;
+  font-weight: 900;
+}
+
+#switch {
+    position: relative;
+    display: inline-block;
+    width: 45px;
+    height: 25px;
+    margin-left: 35%;
+  }
+  #switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #c0c0c0; /* Color de fondo del interruptor (modo día) */
+    -webkit-transition: .2s;
+    transition: .2s;
+  }
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: rgba(251, 255, 33, 0.767);
+    -webkit-transition: .2s;
+    transition: .2s;
+  }
+  input:checked + .slider {
+    background-color: #222222; /* Color de fondo del interruptor (modo noche) */
+  }
+  input:checked + .slider:before {
+    transform: translateX(18px);
+  }
+  .slider.round {
+    border-radius: 34px;
+  }
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  .eliminar{
+    position: relative;
+  }
+
+  #allDelete{
+    margin-left: 10px;
+  }
+
+  .mitabla{
+    text-align: center;
+  }
+
+  td{
+    text-align: center;
+  }
+
+  .buttonsEnd{
+    margin-left: 68.5%;
+  }
+
+  #subTotales{
+    margin-top: -5px;
+  }
+
+  /* Estilos para el modo oscuro */
+.dark-mode {
+    background-color: #121212;
+    color:  #ffffffe6;
+  }
+
+  .dark-mode input, .dark-mode #entrada::before, .dark-mode #entrada2::before, .dark-mode #salida::before, .dark-mode #salida2::before{
+    background-color: #686868;
+    color: #ffffff;
+  }
+
+  .dark-mode input:focus{
+    background-color: #686868;
+    color: #ffffff;
+  }
+
+  .dark-mode input:hover{
+    background-color: #686868;
+    color: #ffffff;
+  }
+
+  .dark-mode input:checked{
+    background-color: #686868;
+    color: #ffffff;
+  }
+
+  .dark-mode input:active{
+    background-color: #686868;
+    color: #ffffff;
+  }
+
+  .dark-mode input::placeholder{
+    background-color: #686868;
+    color: #ffffff;
+  }
+
+  .dark-mode .titulo{
+    color:  #ffffffe6;
+  }
+
+  .dark-mode .mitabla{
+    background-color: #686868;
+    color: #ffffff;
+  }
+
+  .dark-mode .enviar{
+    background-color: rgba(248, 252, 56, 0.877);
+  }
+
+  .dark-mode .enviar:hover{
+    background-color: rgba(235, 238, 38, 0.877);
+  }
+
+  .dark-mode .delete{
+    background-color: #121212;
+    color: #121212;
+  }
+
+  .dark-mode .eliminar{
+    position: relative;
+    background-color: #121212;
+    color: #121212;
+  }
+
+  .dark-mode .swal2-popup {
+    background-color: #121212;
+  }
+
+  .dark-mode .swal2-title, .swal2-content{
+    color: #ffffffe6 ;
+  }
+  /* FIN Estilos para el modo oscuro */
+
+ 
