@@ -114,6 +114,10 @@ function calcularHorasNocturnas(salida2) {
   if (salida2 > "08:00" && salida2 < "22:00") {
     return "00:00";
   }
+  //Manejo Error totales/nocturnas
+  if(horasTotales < "00:01") {
+    return "00:00"
+  }
 
   let salida2Hora = parseInt(salida2.split(":")[0]);
   let salida2Minutos = parseInt(salida2.split(":")[1]);
